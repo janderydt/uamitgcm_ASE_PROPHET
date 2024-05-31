@@ -1,0 +1,30 @@
+# ===================================
+# | Parameters for SHELFICE package |
+# ===================================
+ &SHELFICE_PARM01
+#
+ SHELFICEtopoFile='shelfice_topo.bin',
+ SHELFICEloadAnomalyFile = 'pload.mdjwf' 
+ SHELFICEwriteState = .true.,
+#
+ SHELFICEconserve = .true.,
+ SHELFICEboundaryLayer = .TRUE.,
+ SHI_withBL_uStarTopDz = .true., 
+ useISOMIPTD = .FALSE.,
+ SHELFICEuseGammaFrict = .true., 
+ SHELFICEadvDiffHeatFlux = .true.,
+#
+ shiCdrag = 2.5E-3,
+ SHELFICEheatTransCoeff = 0.02,
+ SHELFICEsaltTransCoeff = 5.7E-4,
+#
+ SHELFICE_transition_gamma = .FALSE.,
+ SHELFICETransGammaThickness = 0.0,
+#
+ no_slip_shelfice = .FALSE.,
+ SHELFICEDragQuadratic = 2.5E-3,
+ SHELFICEDragLinear = 0.0,
+ SHELFICEselectDragQuadr = 2,
+#
+ &
+

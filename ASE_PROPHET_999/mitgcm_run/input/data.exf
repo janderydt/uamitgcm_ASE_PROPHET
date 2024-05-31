@@ -1,0 +1,26 @@
+#
+# *********************
+# External Forcing Data
+# *********************
+##############################################################################
+ &EXF_NML_01
+ &
+
+ &EXF_NML_02
+ &
+
+ &EXF_NML_03
+ &
+
+ &EXF_NML_04
+ &
+
+ &EXF_NML_OBCS
+ obcsSstartdate1=20000101,   
+ obcsSstartdate2=0,   
+# assumes Gregorian calendar with fixed leap year cycle: 
+ obcsSperiod=2629800,
+ obcsWstartdate1=20000101,   
+ obcsWstartdate2=0,   
+ obcsWperiod=2629800,
+ &
