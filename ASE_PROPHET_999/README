@@ -1,4 +1,6 @@
-Set some variables specific to your filesystem (all within this ASE_PROPHET_999 directory):
+1--- MAKE LOCAL COPY OF ASE_PROPHET_xxx ON COMPILE MACHINE
+
+Set some variables specific to your filesystem (all within this ASE_PROPHET_xxx directory):
 
 For Compile-Machine:
 compile_ua.sh: MATLAB_PATH, REPO_DIR, UA_BUILD
@@ -16,24 +18,28 @@ add expt_name and details about Ua inversion/geometry etc to ../../Ua_InputData/
 #################################################
 Setup MITgcm:
 
-On your local machine:
-Make sure to run GenerateInitialDataForMITFile.m from the ua_custom folder to generate the correct initial geometry. The code produces a DataForMIT.mat file required by MITgcm during the spinup phase.
-Go to Run-Machine.
-python setup_mit_ase_prophet.py
+run GenerateInitialDataForMITFile.m from the ua_custom folder to generate the correct initial geometry. The code produces a DataForMIT.mat file required by MITgcm during the spinup phase.
+
+python setup_mit_ase_prophet.py (make sure to select the correct experiment)
+
+#################################################
+Setup Ua:
+
+./compile_ua.sh
+copy appropriate restartfile ASE_PROPHET_xxx-RestartFile.mat to ua_custom and ua_run folder
+
+#################################################
+rsync the entire content of the ASE_PROPHET_xxx folder across to the run machine
+rsync RunTable.csv to run machine
+rsync restart, AGlen and C files in ../../Ua_InputData to run machine
+ 
+2--- GO TO RUN MACHINE
+
 cd mitgcm_run/scripts
 ./compile.sh
 ./prepare_run_*.sh where * is the correct experiment (baseline, rcp85, paris2c)
 cd ../../
 
-#################################################
-Setup Ua:
-
-If not already done, go to Compile-Machine.
-./compile_ua.sh
-scp Ua <Run-Machine>:<path_to_UaMITgcm>/example/ASE_PROPHET_xxx/ua_run/
-copy appropriate restartfile ASE_PROPHET_xxx-RestartFile.mat to ua_custom and ua_run folder on RunMachine
-
-##################################################
 Run the model:
 
 sbatch --export=ALL -A <budget code> run_coupler.sh
