@@ -5,7 +5,7 @@
 # the specified command.
 #
 exe_name=$0
-exe_dir=$PWD
+exe_dir=`dirname "$0"`
 echo "------------------------------------------"
 if [ "x$1" = "x" ]; then
   echo Usage:
@@ -30,7 +30,6 @@ else
       args="${args} \"${token}\"" 
       shift
   done
-  export MCR_CACHE_ROOT=$WORK/mcr_cache
   eval "\"${exe_dir}/Ua\"" $args
 fi
 exit
