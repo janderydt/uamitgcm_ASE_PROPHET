@@ -3,7 +3,7 @@ function [UserVar,s,b,S,B,rho,rhow,g]=DefineGeometryAndDensities(UserVar,CtrlVar
 persistent Fs FB Fb Frho
 
 s=[]; b=[]; S=[]; B=[];
-alpha=0 ;
+rho=[]; alpha=0 ;
 
 if nargin<5
     FieldsToBeDefined="-s-b-S-B-rho-";
@@ -79,13 +79,13 @@ if contains(FieldsToBeDefined,{'rho','rhow','g'})
     rho(rho<100)=100;
     rho(rho>917)=917;
     
-    rhow = 1027;
-    
-    g=9.81/1000;
-    
     fprintf('Done loading densities \n');
 
 end
+
+rhow = 1027;
+
+g=9.81/1000;
 
 
 end
