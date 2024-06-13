@@ -17,7 +17,7 @@
 
 # USER VARIABLE
 # Path to Matlab Compiler Runtime installation
-MCR=$WORK/MCR_2021a/v910
+MCR=$WORK/MCR_2023b/R2023b/
 
 # Make sure MCR cache (as defined in Ua_MCR.sh) exists
 # If you want the cache in a different location, modify it here AND in ua_run/Ua_MCR.sh
