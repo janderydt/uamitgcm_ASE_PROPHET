@@ -1,7 +1,7 @@
 function UserVar=read_UaSpecificUserVariables(UserVar)
 
-%InputDataDirectory='/work/n02/n02/janryd69/UaMITgcm/Ua_InputData';
-InputDataDirectory='/media/wchm8/mainJDRydt2/UaMITgcm_v2/Ua_InputData';
+InputDataDirectory='/work/n02/n02/janryd69/UaMITgcm/Ua_InputData';
+%InputDataDirectory='/media/wchm8/mainJDRydt2/UaMITgcm_v2/Ua_InputData';
 
 RunTable=readtable([InputDataDirectory,'/RunTable.csv']);
 
